@@ -1,0 +1,38 @@
+
+<!-- Three columns of text below the carousel -->
+<div class="container center">
+  <div class="row center">
+    <% these_photos = Photo.where(project_id: @project.id) %>
+      <% if these_photos.count > 11 %>
+        <% photo_display = these_photos[0..14] %>
+        <% photo_display.each do |this_photo|%>
+          <div class="col-sm-3 text-center sm-photos">
+            <%= image_tag this_photo.image_url, width: '240px'  %>
+          </div><!-- /.col-lg-4 -->
+        <% end %>
+    <% elsif these_photos.count < 11 && these_photos.count > 8 %>
+      <% photo_display = these_photos[0..8] %>
+      <% photo_display.each do |this_photo|%>
+        <div class="col-sm-3 text-center sm-photos">
+          <%= image_tag this_photo.image_url, width: '240px'  %>
+        </div>
+      <% end %>
+      <% elsif these_photos.count < 8 && these_photos.count > 5 %>
+        <% photo_display = these_photos[0..5] %>
+        <% photo_display.each do |this_photo|%>
+          <div class="col-sm-3 text-center sm-photos">
+            <%= image_tag this_photo.image_url, width: '240px'  %>
+          </div>
+        <% end %>
+      <% elsif these_photos.count < 5 && these_photos.count > 2 %>
+        <% photo_display = these_photos[0..2] %>
+        <% photo_display.each do |this_photo|%>
+          <div class="col-sm-3 text-center sm-photos">
+            <%= image_tag this_photo.image_url, width: '240px'  %>
+          </div>
+        <% end %>
+      <% else %>
+
+      <% end %>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="container marketing">
+  <!--<h2 class="well">Testimonials</h2>-->
+
+
+<!--  <%= link_to 'New Testimonial', new_testimonial_path %>-->
+
+
+
+
+  <% @testimonials.each do |testimonial| %>
+    <% if testimonial.email != "none" %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-titles" style = text-shadow:none><%= testimonial.try(:name)%></h4>
+          <h5 class="panel-titles" style = text-shadow:none><%= testimonial.try(:company)%> - <%= testimonial.try(:title)%> - <%= link_to testimonial.try(:email), testimonial.try(:email) %></h5>
+        </div>
+        <div class="panel-body" style = text-shadow:none ><%= testimonial.try(:description) %>
+           <%= link_to 'Edit', edit_testimonial_path(testimonial) %>
+          <%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+
+     <% end %>
+  <% end %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-titles" style = text-shadow:none>Private Clients</h4>
+    </div>
+    <% @testimonials.each do |testimonial| %>
+     <% if testimonial.email == "none" %>
+    <div class="panel-body" style = text-shadow:none ><%= testimonial.try(:description) %>
+        <!--            <%= link_to 'Edit', edit_testimonial_path(testimonial) %>
+          <%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' } %>-->
+
+    </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+
+
+
+
+</div>

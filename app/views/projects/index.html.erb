@@ -1,0 +1,61 @@
+
+<% content_for(:full_width_stuff) do %>
+  <%= render partial: 'projects/carousel' %>
+
+  <div class="container marketing">
+
+    <div class="row">
+
+      <%= render partial: 'projects/proj_type_list' %>
+
+      <% if @projects.count > 2 %>
+        <%= render partial: 'projects/under_carousel', locals: {projects_or_photos_or_testim: @projects[0..2]} %>
+      <% end %>
+
+    </div>
+
+  </div>
+
+<% end %>
+
+
+
+<!--
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Design team</th>
+    <th>Type</th>
+    <th>Running order</th>
+    <th>ID</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @projects.each do |project| %>
+  <tr>
+    <td><%= project.name %></td>
+    <td><%= project.description %></td>
+    <td><%= project.design_team %></td>
+    <td><%= project.project_type.try(:name) %></td>
+    <td><%= project.running_order %></td>
+    <td><%= project.id %></td>
+    <td><%= link_to 'Show', project %></td>
+    <td><%= link_to 'Edit', edit_project_path(project) %></td>
+    <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+-->
+
+
+ <!--<br />-->
+
+
+    <!--<%= link_to 'New Project', new_project_path %>-->
+
+
+<div class="container-fluid">
+
+</div>

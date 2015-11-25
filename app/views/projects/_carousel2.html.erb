@@ -1,0 +1,43 @@
+<div id="myCarousel" class="carousel slide " data-ride="carousel" data-interval="10000" data-pause="hover" style = "margin-left:auto margin-top:0  margin-right:auto">           <!--this attempt at centring the photos does not work-->
+  <!--Indicators-->
+  <!--  <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>-->
+  <%caption1 = @project.name %>
+  <%caption2 = @project.description %>
+
+  <div class="carousel-inner projects-carousel">
+   <%current_project_photos = Photo.where(project_id: @project.id).to_a%>
+    <div class="item active" style="margin: auto">
+      <%= image_tag current_project_photos.last.image_url, alt: 'photo of detail of decorative plasterwork'%>
+      <div class="container">
+        <div class="carousel-caption">
+          <!--<h1>Cornice St. Mel's</h1>-->
+          <!--<p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>-->
+        </div>
+      </div>
+    </div>
+      <%current_project_photos.pop%>
+      <%current_project_photos.each do |this_photo|%>
+      <%this_photo_url = this_photo.image_url%>
+      <div class="item">
+        <%= image_tag this_photo_url, alt: 'photo of nice'%>
+        <div class="container">
+          <div class="carousel-caption">
+            <!--<h3 class="inline"><%=caption1 %></h3><h5 class="inline"><%=caption2 %></h5>-->
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+
+  <div style="padding: 15px">
+    <h4 style="text-shadow: none"><%= @project.name%> </h4>
+    <h5 style="text-shadow: none"><%= @project.description %> </h5>
+  </div>
+</div><!-- /.carousel -->

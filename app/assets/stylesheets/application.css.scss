@@ -1,0 +1,99 @@
+/**/
+ /** This is a manifest file that'll be compiled into application.css, which will include all the files*/
+ /** listed below.*/
+ /***/
+ /** Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,*/
+ /** or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.*/
+ /***/
+ /** You're free to add application-wide styles to this file and they'll appear at the top of the*/
+ /** compiled file, but it's generally better to create a new file per style scope.*/
+ /***/
+ /**= require_self*/
+ /**= require_tree .*/
+ /**/
+
+
+$navbar-inverse-link-color: #fff;
+$navbar-inverse-link-hover-color: #aaa;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+ img {
+   padding: 0px;
+   border: 0px;
+   margin: 0px
+ }
+ul {
+  list-style-type: none;
+}
+.carousel {
+    width: 80%;
+    margin : 0 auto; /* center your carousel if other than 100% */
+}
+.projects-carousel   {
+    width: 600px;
+    height: 372px;
+    margin : 0 auto; /* center your carousel if other than 100% */
+}
+
+.navbar {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+.navbar-inverse {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+
+}
+.navbar-static-top {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+
+}
+.footer {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.sm-photos {
+  padding-top: 20px;
+}
+
+.item {
+  align-items: center;
+}
+
+.carousel-inner > .item > img {
+  margin: 0 auto;
+}                    /*thank God!! centred eventually */
+
+
+.carousel-caption h1, .carousel-caption h2, .carousel-caption h3, .carousel-caption h4 {
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+/*image {
+    margin-left: 50px;   *//*this doesn't work     *//*
+    margin-right: 50px;   *//*this doesn't work     *//*
+
+}*/
+
+
+a.white_email:link {
+  color: #ff0000;     /*these dont seem to work - come back to it, it is for the email in the footer.     */
+}
+a.white_email:visited {
+  color: #ff0000;
+}
+a.white_email:hover {
+  color: #ff0000;
+}
+a.white_email:active {
+  color: #ff0000;
+}
+
+

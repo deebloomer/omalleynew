@@ -1,0 +1,42 @@
+
+
+
+    <!--below is the one from official bootstrap site-->
+
+
+    <div class="panel-group col-sm-3" style = "padding:20px" id="accordion" role="tablist" aria-multiselectable="true">
+      <% @project_types.each do |project_type|%>
+        <div class="panel panel-default" >
+          <div class="panel-heading" role="tab" id="heading<%= project_type.id %>">
+            <h5 class="panel-title">
+              <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= project_type.id %>"
+                 <% if project_type == @project_types.first %>
+                  aria-expanded="true"
+                 <% else %>
+                  aria-expanded="false"
+                 <% end %>
+                  aria-controls="collapse<%= project_type.id %>">
+                <%= project_type.name %>
+              </a>
+            </h5>
+          </div>
+          <div id="collapse<%= project_type.id %>"
+            <% if project_type == @project.project_type %>
+              class="panel-collapse collapse in"
+            <% else %>
+              class="panel-collapse collapse"
+            <% end%>
+          role="tabpanel" aria-labelledby="heading<%= project_type.id %>">
+            <div class="panel-body">
+              <ul>
+                <% project_type.projects.each do |project|%>
+                <li><%=   link_to project.name, project   %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+

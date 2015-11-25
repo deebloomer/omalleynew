@@ -1,0 +1,31 @@
+
+
+  <div class="field">
+    <%= form_for @project_type do |f| %>
+
+      <div class="field">
+        <%= f.label :name %><br/>
+        <%= f.text_field :name %>
+      </div>
+
+      Projects
+      <ul>
+      <%= f.fields_for :projects do |project_form| %>
+          <li>
+            <%= project_form.label :name %>    <br/>
+            <%= project_form.text_field :name %>
+          </li>
+          <li>
+            <%= project_form.label :description %> <br/>
+            <%= project_form.text_field :description %>
+
+          </li>
+         <% end %>
+      </ul>
+
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

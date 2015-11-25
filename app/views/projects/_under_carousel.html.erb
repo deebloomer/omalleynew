@@ -1,0 +1,15 @@
+<!-- Three columns of text below the carousel -->
+<div class="container center">
+  <div class="row center">
+    <% projects_or_photos_or_testim.each do |project| %>
+      <div class="col-sm-3 text-center" >
+        <h5><%= link_to project.try(:name), project %></h5>
+
+        <% first_photo = Photo.where(project_id: project.id).first %>
+        <%= link_to (image_tag (first_photo.image_url), width: '240px'), project %>
+      </div><!-- /.col-lg-4 -->
+    <% end %>
+  </div>
+
+
+</div>

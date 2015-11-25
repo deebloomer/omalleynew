@@ -1,0 +1,38 @@
+<h1>Contact Us</h1>
+<%= form_for @contact_us, :url => contact_path do |form| %>     <!--this gets shown when the person hits the contact button NAMING CONVENTION HERE-->
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :email %>
+        <%= form.text_field :email, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :subject %>
+        <%= form.text_field :subject, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.label :message %>   <br/>
+        <%= form.text_area :body, rows: 6, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.submit "Send", class: 'btn btn-success' %>
+      </div>
+    </div>
+
+     <div class="col-sm-8">
+      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=bray,ireland&sensor=false&size=900x300&zoom=13", class: 'img-responsive' %>
+      <address>
+        <h5> Unit 43</h5>
+        <h5> Ballywaltrim Business Park</h5>
+        <h5> Boghall Road</h5>
+        <h5> Bray</h5>
+        <h5> Co. Wicklow</h5>
+        <h5> Fax +353 1 2022708</h5>
+      </address>
+    </div>
+  </div>
+<% end %>

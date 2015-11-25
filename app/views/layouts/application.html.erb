@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Omalley</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+  <!--DBD commented out line above to try use gem instead 26.2.15 %%%% THEN %%% undid this on 2.3.15-->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <script type="text/javascript"src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <script src="script.js"></script>
+  <![endif]-->
+  <style>
+    .carousel-inner > .item {
+      -webkit-transition: 2.0s ease-in-out left;
+      -moz-transition: 2.0s ease-in-out left;
+      -o-transition: 2.0s ease-in-out left;
+      transition: 2.0s ease-in-out left;
+    }
+  </style>
+</head>
+<body>
+
+<div class = "navbar navbar-inverse navbar-static-top">
+
+  <div class = "container">
+
+    <a href = "#" class = "navbar-brand">O'Malley Plastering</a>
+      <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+        <span class = "icon-bar"></span>
+        <span class = "icon-bar"></span>
+        <span class = "icon-bar"></span>
+
+      </button>
+      <div class = "collapse navbar-collapse navHeaderCollapse">
+
+        <ul class = "nav navbar-nav navbar-right">
+
+
+          <li><%= link_to 'Home', projects_url %></li>
+          <li><%= link_to 'About', pages_about_path %></li>
+          <li><%= link_to 'Projects', projects_url %></li>
+          <li><%= link_to "George O'Malley", pages_george_o_malley_path %></li>
+          <li><%= link_to 'Testimonials', testimonials_url %></li>
+          <li><%= link_to 'Contact', contact_url %></li>
+
+        </ul>
+      </div>
+  </div>
+</div>
+<%= render partial: '/layouts/flash_notices' %>
+
+
+  <%= yield(:full_width_stuff) %>
+  <div class="container ">
+    <%= yield %>
+
+  </div>
+  <div class="row col-sm-2">
+  </div>
+    <div class="row col-sm-8">
+
+    </div>
+  <div class="row col-sm-2">
+  </div>
+
+
+  <footer class="footer" style ="background-color: #1b1b1b;, padding: 5px;">
+    <div class="container">
+      <div class="row text-muted">
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-sm-6">
+              <h5>Phone +353 1 2116706</h5>
+              <h5>Phone +353 1 2116708</h5>
+              <h5>Fax   +353 1 2022708</h5>
+              <h5>Email</h5> <h5> <a href="mailto:info@omalleyplastering.com"> info@omalleyplastering.com</a></h5>
+            </div>
+            <div class="col-sm-6">
+              <h5> Unit 3</h5>
+              <h5> Ballywaltrim Business Park</h5>
+              <h5> Boghall Road</h5>
+              <h5> Bray</h5>
+              <h5> Co. Wicklow</h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <% this_testimonial = Testimonial.find(Testimonial.pluck(:id).sample)  %>
+              <h4> What people say about O'Malley Plastering </h4>             <!--h5 s are blocks-->
+              <strong><em><%= this_testimonial.name  %>:</em></strong>
+              <%= truncate(this_testimonial.description, length: 235)  %>
+              <strong><em><%= link_to 'more', testimonials_url %></em></strong>
+            </div>
+          </div>
+          <h4> Accreditations  and Memberships </h4>
+          <%= link_to image_tag('ISO 9001.gif', alt: "National Standards Authority of Ireland Logo"), "http://www.nsai.ie/Our-Services/Certification/Management-Systems/ISO-9001.aspx" %>
+          <%= link_to image_tag('IQnet.gif', alt: "IQNET Logo"),   "http://www.iqnet-certification.com/" %>
+          <%= link_to image_tag('igs.jpeg', alt: "Irish Georgian Society Logo" ), "http://www.igs.ie/conservation/register" %>
+          <%= link_to image_tag('heritage_contractor.jpeg', alt: "Heritage Contractor Logo" ), "http://www.heritageregistration.ie/what-is-a-heritage-contractor/" %>
+        </div>
+
+
+
+        <div class="col-sm-6 text-center">
+          <a class="twitter-timeline" href="https://twitter.com/DeirdreBloomer" data-widget-id="581054433385144320">Tweets by @DeirdreBloomer</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+          <div class="row" >
+            <br/>
+            <button class="btn text-center" type="button" > We are in the process of updating our website.....   check back soon.   </button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>

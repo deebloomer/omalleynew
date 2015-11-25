@@ -1,0 +1,21 @@
+<div class="row jumbotron">
+  <div class="col-sm-3 ">
+    <img src='/assets/Portrait-George.jpg' >
+  </div>
+  <div class="col-sm-9">
+    <h4 style = text-shadow:none > About O'Malley Plastering</h4>
+    Since it was established in 1978, our company has been specializing in the conservation and restoration of lime plaster and stucco. In over 35 years we have worked on a wide variety of projects ranging from plain external and internal renders and decorative plasterwork from run in situ run mouldings to the reconstruction of the most elaborate hand modelled period stucco ceilings, figures, etc.
+    Based on a comprehensive knowledge of traditional techniques and excellence in the required traditional skills we offer a quality of execution that only many years of experience can provide. Historic architectural detail will be painstkingly conserved and where required we offer the possibility of creating new stucco decoration to match existing historic models and specification.
+    We are dedicated to the care of our Irish building heritage and have been involved in many restoration projects throughout this country, most notably the restoration of St. Mel´s Cathedral in Longford, which is currently under way. We offer the same level of care and attention to detail to smaller projects as we do to the restoration of important heritage buildings. Below are some examples of small projects in progress / completed.
+
+  <hr/>
+
+  </div>
+
+
+  <div class="container marketing">
+    <% if @projects.count > 8 %>
+      <%= render partial: 'projects/under_carousel', locals: {projects_or_photos_or_testim: @projects[4..11].values_at(7,3,5,6)} %>
+    <% end %>
+   </div>
+</div>

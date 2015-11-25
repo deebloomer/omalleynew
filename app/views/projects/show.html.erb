@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+
+<% content_for(:full_width_stuff) do %>
+
+  <!--this next line needs to be subject a project being old or new, as old projects have very poor photos-->
+  <%= render partial: 'projects/carousel2', locals: {current_project: @project}  %>
+
+  <div class="container marketing">
+    <div class="row">
+      <%= render partial: 'projects/proj_type_list' %>
+<!--      <div class="col-sm-3">
+        <h4 style="text-shadow: none"><%= @project.name%> </h4>
+        </div>
+      <div class="col-sm-6">
+        <h5 style="text-shadow: none"><%= @project.description %> </h5>
+      </div>-->
+
+      <% if @projects.count > 2 %>
+        <%= render partial: 'projects/under_carousel2' %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+
+
+
+<!--<p>
+  <b>Name:</b>
+  <%= @project.name %>
+</p>
+<p>
+  <b>Description:</b>
+  <%= @project.description %>
+</p>
+
+<p>
+  <b>Design team:</b>
+  <%= @project.design_team %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @project.project_type.try(:name) %>
+</p>
+
+<p>
+  <b>Running Order:</b>
+  <%= @project.running_order %>
+</p>-->
+
+
+<!--<%= link_to 'Edit', edit_project_path(@project) %>-->
+
+<!--<%= link_to 'Back', projects_path %>-->

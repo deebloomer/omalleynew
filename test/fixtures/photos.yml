@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: photos
+#
+#  id            :integer          not null, primary key
+#  image_url     :string(255)
+#  project_id    :integer
+#  caption       :string(255)
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  running_order :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  image_url: MyString
+  project_id: 1
+  caption: MyString
+
+two:
+  image_url: MyString
+  project_id: 1
+  caption: MyString
